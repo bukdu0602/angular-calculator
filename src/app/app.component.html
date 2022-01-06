@@ -1,0 +1,47 @@
+<h1>Angular Calculator</h1>
+<br>
+<br>
+<div>
+    <form #myForm="ngForm">
+<h3>Sum:</h3>
+<input type="text" pattern="[0-9]*\.*[0-9]*" [(ngModel)]="sumNum.front" name="firstName" #firstName="ngModel" > + 
+<input type="text" [(ngModel)]="sumNum.rear"> 
+<input type="button" value="=" (click)="sum()" [disabled]="!myForm.form.valid" >
+<div *ngIf="resultStringSum">
+    <h3>{{resultStringSum}}</h3>
+</div>
+<div [hidden]="firstName.valid || firstName.pristine">
+    invalid input.</div>
+    
+</form>
+</div>
+
+<div>
+<h3>Difference:</h3>
+<input [(ngModel)]="subtractNum.front"> - 
+<input [(ngModel)]="subtractNum.rear">
+<input type="button" value="="(click)="subtract()">
+<div *ngIf="resultStringSubtract">
+    <h3>{{resultStringSubtract}}</h3>
+</div>
+</div>
+
+<div>
+<h3>Product:</h3>
+<input [(ngModel)]="multiplyNum.front"> * 
+<input [(ngModel)]="multiplyNum.rear">
+<input type="button" value="="(click)="multiply()">
+<div *ngIf="resultStringMultiply">
+    <h3>{{resultStringMultiply}}</h3>
+</div>
+</div>
+
+<div>
+<h3>Quotient:</h3>
+<input [(ngModel)]="divideNum.front"> / 
+<input [(ngModel)]="divideNum.rear">
+<input type="button" value="="(click)="divide()">
+<div *ngIf="resultStringDivide">
+    <h3>{{resultStringDivide}}</h3>
+</div>
+</div>
