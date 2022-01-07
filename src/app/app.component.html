@@ -1,47 +1,68 @@
 <h1>Angular Calculator</h1>
+
 <br>
+
+
+
 <br>
-<div>
-    <form #myForm="ngForm">
-<h3>Sum:</h3>
-<input type="text" pattern="[0-9]*\.*[0-9]*" [(ngModel)]="sumNum.front" name="firstName" #firstName="ngModel" > + 
-<input type="text" [(ngModel)]="sumNum.rear"> 
-<input type="button" value="=" (click)="sum()" [disabled]="!myForm.form.valid" >
-<div *ngIf="resultStringSum">
-    <h3>{{resultStringSum}}</h3>
+
+<form #myForm="ngForm">
+<div>    
+    <h3>Sum:</h3>
+    <input type="text" [(ngModel)]="sumNum.front" pattern="[0-9]*\.*[0-9]*" name="input" #input="ngModel" >&nbsp; + 
+    <input type="text" [(ngModel)]="sumNum.rear" pattern="[0-9]*\.*[0-9]*" name="input" #input="ngModel">&nbsp;  
+    <input type="button" value="=" (click)="sum()" [disabled]="!myForm.form.valid">
+    <div *ngIf="resultStringSum" style="display: inline;">
+        &nbsp; {{resultStringSum}}
+    </div>
+
+    <div [hidden]="input.valid || input.pristine">
+        invalid input.
+    </div> 
 </div>
-<div [hidden]="firstName.valid || firstName.pristine">
-    invalid input.</div>
-    
 </form>
-</div>
 
+<form #myForm2="ngForm">
 <div>
-<h3>Difference:</h3>
-<input [(ngModel)]="subtractNum.front"> - 
-<input [(ngModel)]="subtractNum.rear">
-<input type="button" value="="(click)="subtract()">
-<div *ngIf="resultStringSubtract">
-    <h3>{{resultStringSubtract}}</h3>
+    <h3>Difference:</h3>
+    <input [(ngModel)]="subtractNum.front" pattern="[0-9]*\.*[0-9]*" name="input2" #input2="ngModel">&nbsp; -    
+    <input [(ngModel)]="subtractNum.rear" pattern="[0-9]*\.*[0-9]*" name="input2" #input2="ngModel">&nbsp; 
+    <input type="button" value="="(click)="subtract()" [disabled]="!myForm2.form.valid">
+    <div *ngIf="resultStringSubtract" style="display: inline;">
+        &nbsp; {{resultStringSubtract}}
+    </div>
+    <div [hidden]="input2.valid || input2.pristine">
+        invalid input.
+    </div>
 </div>
-</div>
+</form>
 
+<form #myForm3="ngForm">
 <div>
-<h3>Product:</h3>
-<input [(ngModel)]="multiplyNum.front"> * 
-<input [(ngModel)]="multiplyNum.rear">
-<input type="button" value="="(click)="multiply()">
-<div *ngIf="resultStringMultiply">
-    <h3>{{resultStringMultiply}}</h3>
+    <h3>Product:</h3>
+    <input [(ngModel)]="multiplyNum.front" pattern="[0-9]*\.*[0-9]*" name="input3" #input3="ngModel">&nbsp; * 
+    <input [(ngModel)]="multiplyNum.rear" pattern="[0-9]*\.*[0-9]*" name="input3" #input3="ngModel">&nbsp; 
+    <input type="button" value="="(click)="multiply()" [disabled]="!myForm3.form.valid">
+    <div *ngIf="resultStringMultiply" style="display: inline;">
+        &nbsp; {{resultStringMultiply}}
+    </div>
+    <div [hidden]="input3.valid || input3.pristine">
+        invalid input.
+    </div>
 </div>
-</div>
+</form>
 
+<form #myForm4="ngForm">
 <div>
-<h3>Quotient:</h3>
-<input [(ngModel)]="divideNum.front"> / 
-<input [(ngModel)]="divideNum.rear">
-<input type="button" value="="(click)="divide()">
-<div *ngIf="resultStringDivide">
-    <h3>{{resultStringDivide}}</h3>
+    <h3>Quotient:</h3>
+    <input [(ngModel)]="divideNum.front" pattern="[0-9]*\.*[0-9]*" name="input4" #input4="ngModel">&nbsp; / 
+    <input [(ngModel)]="divideNum.rear" pattern="[0-9]*\.*[0-9]*" name="input4" #input4="ngModel">&nbsp; 
+    <input type="button" value="="(click)="divide()" [disabled]="!myForm4.form.valid">
+    <div *ngIf="resultStringDivide" style="display: inline;">
+        &nbsp; {{resultStringDivide}}
+    </div>
+    <div [hidden]="input4.valid || input4.pristine">
+        invalid input.
+    </div>
 </div>
-</div>
+</form>

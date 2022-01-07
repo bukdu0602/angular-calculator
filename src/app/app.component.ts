@@ -41,8 +41,10 @@ export class AppComponent {
   }
 
   sum(){
+    
      let sumValue = +this.sumNum.front + +this.sumNum.rear
-     this.resultStringSum = this.sumNum.front + "+" + this.sumNum.rear + "=" + sumValue.toString()
+     let rounded = Math.round(sumValue * 100) / 100
+     this.resultStringSum = this.sumNum.front + "+" + this.sumNum.rear + "=" + rounded.toString()
      this.reset()
      this.resultStringSubtract = ""
      this.resultStringMultiply = ""
@@ -53,7 +55,8 @@ export class AppComponent {
 
   subtract(){
     let subtractValue = +this.subtractNum.front - +this.subtractNum.rear
-    this.resultStringSubtract = this.subtractNum.front + "-" + this.subtractNum.rear + "=" + subtractValue.toString()
+    let rounded = Math.round(subtractValue * 100) / 100
+    this.resultStringSubtract = this.subtractNum.front + "-" + this.subtractNum.rear + "=" + rounded.toString()
     this.reset()
     this.resultStringSum = ""
     this.resultStringMultiply = ""
@@ -62,7 +65,8 @@ export class AppComponent {
 
  multiply(){
   let multiplyValue = +this.multiplyNum.front * +this.multiplyNum.rear
-  this.resultStringMultiply = this.multiplyNum.front + "*" + this.multiplyNum.rear + "=" + multiplyValue.toString()
+  let rounded = Math.round(multiplyValue * 100) / 100
+  this.resultStringMultiply = this.multiplyNum.front + "*" + this.multiplyNum.rear + "=" + rounded.toString()
   this.reset()
   this.resultStringSum = ""
   this.resultStringSubtract = ""
@@ -71,7 +75,8 @@ export class AppComponent {
 
 divide(){
   let divideValue = +this.divideNum.front / +this.divideNum.rear
-  this.resultStringDivide = this.divideNum.front + "/" + this.divideNum.rear + "=" + divideValue.toString()
+  let rounded = Math.round(divideValue * 100) / 100
+  this.resultStringDivide = this.divideNum.front + "/" + this.divideNum.rear + "=" + rounded.toString()
   this.reset()
   this.resultStringSum = ""
   this.resultStringSubtract = ""
